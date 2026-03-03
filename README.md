@@ -1,7 +1,10 @@
+[![Build Status](https://travis-ci.com/MNCC/Mallet.svg?branch=master)](https://travis-ci.com/MNCC/Mallet)
+[![codecov](https://codecov.io/gh/MNCC/Mallet/branch/master/graph/badge.svg)](https://codecov.io/gh/MNCC/Mallet)
+
 Mallet
 ======
 
-Website: http://mallet.cs.umass.edu/index.php
+Website: https://mimno.github.io/Mallet/
 
 MALLET is a Java-based package for statistical natural language processing, document classification, clustering, topic modeling, information extraction, and other machine learning applications to text.
 
@@ -19,25 +22,69 @@ An add-on package to MALLET, called GRMM, contains support for inference in gene
 
 ## Installation
 
-To build a Mallet 2.0 development release, you must have the Apache ant build tool installed. From the command prompt, first change to the mallet directory, and then type
-`ant`
+### Prerequisites
 
-If `ant` finishes with `"BUILD SUCCESSFUL"`, Mallet is now ready to use.
+- Java 17 or higher
+- Maven 3.6 or higher
 
-If you would like to deploy Mallet as part of a larger application, it is helpful to create a single ".jar" file that contains all of the compiled code. Once you have compiled the individual Mallet class files, use the command:
-`ant jar`
+#### macOS Users
 
-This process will create a file "mallet.jar" in the "dist" directory within Mallet.
+The default Java installation on macOS is often outdated. We recommend installing OpenJDK via [Homebrew](https://brew.sh/):
+
+```bash
+brew install openjdk maven
+```
+
+After installation, follow the instructions printed by Homebrew to add OpenJDK to your PATH, or add this to your shell configuration file (e.g., `~/.zshrc`):
+
+```bash
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+```
+
+Verify your Java version with `java --version`.
+
+### Building from Source
+
+To build MALLET from source, use Maven:
+
+```bash
+mvn package
+```
+
+This compiles the code, runs tests, and creates a JAR file in the `target/` directory.
+
+### Build Commands
+
+| Command | Description |
+|---------|-------------|
+| `mvn compile` | Compile the source code |
+| `mvn test` | Run all tests |
+| `mvn package` | Build JAR file (includes tests) |
+| `mvn package -DskipTests` | Build JAR file (skip tests) |
+| `mvn install` | Install to local Maven repository |
+| `mvn javadoc:javadoc` | Generate API documentation |
+
+### Using as a Maven Dependency
+
+Add MALLET to your project's `pom.xml`:
+
+```xml
+<dependency>
+  <groupId>cc.mallet</groupId>
+  <artifactId>mallet</artifactId>
+  <version>2.1.0</version>
+</dependency>
+```
 
 ## Usage
 
-Once you have installed Mallet you can use it using the following command:
+After building with `mvn package`, you can use the command-line interface:
 ```
 bin/mallet [command] --option value --option value ...
 ```
 Type `bin/mallet` to get a list of commands, and use the option `--help` with any command to get a description of valid options.
 
-For details about the commands please visit the API documentation and website at: http://mallet.cs.umass.edu/
+For details about the commands please visit the API documentation and website at: https://mimno.github.io/Mallet/
 
 
 ## List of Algorithms:
