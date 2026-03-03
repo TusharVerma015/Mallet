@@ -23,9 +23,9 @@
   </licenses>
 
   <scm>
-    <url>https://github.com/mimno/Mallet</url>
-    <connection>scm:git:git://github.com/mimno/Mallet.git</connection>
-    <developerConnection>scm:git:git@github.com:mimno/Mallet.git</developerConnection>
+    <url>https://github.com/mallet-jshell/mallet</url>
+    <connection>scm:git:git://github.com/mallet-jshell/mallet.git</connection>
+    <developerConnection>scm:git:git@github.com:mallet-jshell/mallet.git</developerConnection>
   </scm>
 
   <developers>
